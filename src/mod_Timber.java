@@ -10,14 +10,20 @@ public class mod_Timber extends BaseMod {
   
   @MLProp (name="axeIds", info="List of item ids that are axes.")
     public static String axes = "258, 271, 275, 279, 286, 1052";
+  @MLProp (name="woodIds", info="List of item ids that are wood.")
+    public static String wood = "17";
   @MLProp (name="toggleKey", info="Sets the key to hold down to toggle Timber! off. (example, 46 = C)") 
     public static int key = 46;
   
-  static Block tree;
+  static Block[] tree;
     
   public void load() {
-    Block.blocksList[17] = null;
-    tree = new BlockTimberTree(17).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setBlockName("log");
+    String[] ids = wood.split(",");
+    tree = new Block[ids.length];
+    for (int i=0; i<ids.length; i++) {
+      Block.blocksList[i] = null;
+      tree[i] = new BlockTimberTree(i).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setBlockName("log");
+    }
     ModLoader.SetInGameHook(this, true, true);
   }
     
@@ -43,4 +49,5 @@ public class mod_Timber extends BaseMod {
     
     return false;
   }
+
 }

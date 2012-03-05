@@ -20,7 +20,8 @@ public class mod_Timber extends BaseMod {
   public void load() {
     String[] ids = wood.split(",");
     tree = new Block[ids.length];
-    for (int i=0; i<ids.length; i++) {
+    for (int j=0; j<ids.length; j++) {
+      int i = Integer.parseInt(ids[i]);
       Block.blocksList[i] = null;
       tree[i] = new BlockTimberTree(i).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setBlockName("log");
     }

@@ -23,7 +23,7 @@ public class mod_Timber extends BaseMod {
     for (int j=0; j<ids.length; j++) {
       int i = Integer.parseInt(ids[j]);
       Block.blocksList[i] = null;
-      tree[i] = new BlockTimberTree(i).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setBlockName("log");
+      tree[j] = new BlockTimberTree(i).setHardness(2.0F).setStepSound(Block.soundWoodFootstep).setBlockName("log");
     }
     ModLoader.SetInGameHook(this, true, true);
   }
